@@ -15,6 +15,4 @@ class FaceDetectionViewSet(viewsets.ModelViewSet):
     def new(self, request):
         serializer = FaceDetectionSerializer.create(self, request.data)
 
-
-        return Response('')
-
+        return JsonResponse({'message' : 'SUCCESS'}, status=201)
