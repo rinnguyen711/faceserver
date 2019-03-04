@@ -77,13 +77,24 @@ WSGI_APPLICATION = 'MyServer2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd5ltgq6legh122',
+#         'USER': 'rlgzkdycbmogtt',
+#         'PASSWORD': 'f023b1c5ad6f26947ff2c1860696489c9cba456429d06a0d6a9c347aa4f995ea',
+#         'HOST': 'ec2-54-225-121-235.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
-    'default': {
+   'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5ltgq6legh122',
-        'USER': 'rlgzkdycbmogtt',
-        'PASSWORD': 'f023b1c5ad6f26947ff2c1860696489c9cba456429d06a0d6a9c347aa4f995ea',
-        'HOST': 'ec2-54-225-121-235.compute-1.amazonaws.com',
+        'NAME': 'fxtxldow ',
+        'USER': 'fxtxldow ',
+        'PASSWORD': 'ur4E-ZPCMXBIuN-mTKmdcfciR7yVilK7',
+        'HOST': 'stampy.db.elephantsql.com',
         'PORT': '5432',
     }
 }
