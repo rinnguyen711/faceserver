@@ -88,17 +88,6 @@ WSGI_APPLICATION = 'MyServer2.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fxtxldow ',
-        'USER': 'fxtxldow ',
-        'PASSWORD': 'ur4E-ZPCMXBIuN-mTKmdcfciR7yVilK7',
-        'HOST': 'stampy.db.elephantsql.com',
-        'PORT': '5432',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
