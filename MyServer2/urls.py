@@ -18,8 +18,10 @@ from django.urls import path, include
 from FaceDetection.urls import router
 from django.conf.urls.static import static
 from django.conf import settings
+from FaceDetection.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('', index),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
