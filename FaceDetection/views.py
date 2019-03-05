@@ -5,7 +5,9 @@ from .models import FaceDetection
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.http.response import JsonResponse
-
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from MyServer2 import settings
 
 class FaceDetectionViewSet(viewsets.ModelViewSet):
     queryset = FaceDetection.objects.all()
@@ -16,3 +18,12 @@ class FaceDetectionViewSet(viewsets.ModelViewSet):
         serializer = FaceDetectionSerializer.create(self, request.data)
 
         return JsonResponse({'message' : 'SUCCESS'}, status=201)
+
+def index(request):
+        db = settings.DATABASES['default']
+        print(db['NAME'])
+        #return redirect('/api/')
+
+        return HttpResponse(db['NAME'])
+
+    
