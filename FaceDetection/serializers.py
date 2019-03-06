@@ -1,13 +1,13 @@
 from .models import FaceDetection
 from rest_framework import serializers
 import requests
-
+import json
 
 class FaceDetectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FaceDetection
-        fields = ('rects', 'image')
+        fields = ('rects', 'image', 'image_link')
 
     def create(self, validated_data):
         face_detection = FaceDetection()
@@ -37,11 +37,16 @@ class FaceDetectionSerializer(serializers.ModelSerializer):
             face_detection.rects = []
 
         face_detection.image = validated_data['image']
-        face_detection.save()
         
         
         files = {'image': open(face_detection.image.path, 'rb')}
         response = requests.post(url='http://rinnguyen.pythonanywhere.com/api/faces/new/', files=files)
         content = response.content
+        content = content.decode("utf-8")
 
+        d = json.loads(content)
+        image_path = d['image_path']
+        face_detection.image_link = image_path
+        face_detection.save()
+        
         return face_detection
