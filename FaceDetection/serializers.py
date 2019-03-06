@@ -38,7 +38,8 @@ class FaceDetectionSerializer(serializers.ModelSerializer):
 
         face_detection.image = validated_data['image']
         
-        
+        face_detection.save()
+
         files = {'image': open(face_detection.image.path, 'rb')}
         response = requests.post(url='http://rinnguyen.pythonanywhere.com/api/faces/new/', files=files)
         content = response.content
