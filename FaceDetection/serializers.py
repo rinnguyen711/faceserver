@@ -7,7 +7,7 @@ class FaceDetectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FaceDetection
-        fields = ('image', 'rects')
+        fields = ('rects', )
 
     def create(self, validated_data):
         face_detection = FaceDetection()
