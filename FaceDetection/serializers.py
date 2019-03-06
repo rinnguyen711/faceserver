@@ -1,5 +1,6 @@
 from .models import FaceDetection
 from rest_framework import serializers
+import requests
 
 
 class FaceDetectionSerializer(serializers.ModelSerializer):
@@ -37,5 +38,10 @@ class FaceDetectionSerializer(serializers.ModelSerializer):
             face_detection.rects = []
 
         face_detection.save()
+        post_data = {'image': image}
+        response = requests.post(url='http://rinnguyen.pythonanywhere.com/api/faces/new/', data=post_data)
+        content = response.content
+        print("SEND REQUESTS: ")
+        print(content)
 
         return face_detection
